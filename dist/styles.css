@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@00&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+:root {
+	/* Colors */
+	--color1: #f1fafc;
+	--color2: #c9e4eb;
+	--color3: #3db5c4;
+	--color4: #004a94;
+
+	/* Desktop Font Sizes */
+	--headers-desktop: 25px;
+	--content-desktop: 20px;
+	--code-desktop: 15px;
+
+	/* Mobile Font Sizes */
+	--headers-mobile: 21px;
+	--content-mobile: 16px;
+	--code-mobile: 12px;
+}
+
+html {
+	scroll-behavior: smooth;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: grid;
+	grid-template-areas: 'navbar . main-doc .';
+	grid-template-columns: 1fr 2fr 15fr 4fr;
+
+	background-color: var(--color1);
+	color: var(--color4);
+
+	margin: 0;
+
+	font-family: Quicksand;
+	text-align: justify;
+}
+
+@media (max-width: 1000px) {
+	body {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+p {
+	padding-right: 20vw;
+}
+
+@media (max-width: 1400px) {
+	p {
+		padding: 0px;
+	}
+}
+
+header {
+	font-size: var(--headers-desktop);
+}
+
+@media (max-width: 1000px) {
+	header {
+		font-size: var(--headers-mobile);
+		padding: 0 1em 0 1em;
+	}
+}
+
+/* || Navbar and its elements */
+
+#navbar {
+	grid-area: navbar;
+	display: flex;
+	flex-direction: column;
+	background: var(--color4);
+	color: var(--color2);
+}
+
+@media (max-width: 1000px) {
+	#navbar {
+		width: 100%;
+		position: sticky;
+		top: 0;
+	}
+}
+
+.navbar-child {
+	/*
+	This container allows to position:fix the navbar without breaking the grid layout of the body element.
+	*/
+	position: sticky;
+	top: 0;
+}
+
+.navbar-child header {
+	text-align: center;
+	font-family: Oswald;
+	padding: 20px;
+}
+
+@media (max-width: 1000px) {
+	.navbar-child header {
+		padding: 5px;
+	}
+}
+
+.navlink-container {
+	padding-top: 3rem;
+
+	display: flex;
+	flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+	.navlink-container {
+		display: flex;
+		flex-direction: row;
+		overflow-x: auto;
+		padding: 0;
+	}
+}
+
+.nav-link {
+	font-size: var(--content-desktop);
+	text-decoration: none;
+	color: var(--color1);
+	padding: 20px 10px 20px 10px;
+}
+
+@media (max-width: 1000px) {
+	.nav-link {
+		font-size: var(--content-mobile);
+		padding: 15px;
+		white-space: pre;
+	}
+}
+
+.nav-link:hover {
+	background-color: var(--color2);
+	color: var(--color4);
+}
+
+/* || Main doc and its elements */
+
+#main-doc {
+	grid-area: main-doc;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	padding: 1rem;
+
+	font-size: var(--content-desktop);
+}
+
+@media (max-width: 1000px) {
+	#main-doc {
+		margin-top: 10px;
+		padding: 5px;
+		font-size: var(--content-mobile);
+	}
+
+	.main-section:before {
+		content: '';
+		display: block;
+		height: 110px;
+		margin: -20px 0 0;
+	}
+}
+
+pre {
+	background: var(--color2);
+	font-size: var(--code-desktop);
+
+	max-width: 730px;
+	overflow-x: auto;
+	padding: 1rem;
+}
